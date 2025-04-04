@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,22 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-foreground font-sans;
+  }
+  
+  .container {
+    @apply px-4 md:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+  
+  .btn-primary {
+    @apply bg-vihas-primary text-white px-6 py-3 rounded hover:opacity-90 transition-opacity font-medium;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-vihas-secondary;
+  }
+  
+  .product-card {
+    @apply border border-gray-100 rounded-lg p-4 transition-all hover:shadow-lg;
   }
 }
