@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, ArrowRight, Truck, CreditCard, Shield, Clock } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -74,10 +74,18 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Customer Service</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-white/70 hover:text-white">Track Your Order</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white">Shipping & Delivery</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white">Returns & Refunds</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white">FAQs</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white flex items-center">
+                <Truck className="w-4 h-4 mr-2" />Track Your Order
+              </a></li>
+              <li><a href="#" className="text-white/70 hover:text-white flex items-center">
+                <CreditCard className="w-4 h-4 mr-2" />Shipping & Delivery
+              </a></li>
+              <li><a href="#" className="text-white/70 hover:text-white flex items-center">
+                <Shield className="w-4 h-4 mr-2" />Returns & Refunds
+              </a></li>
+              <li><a href="#" className="text-white/70 hover:text-white flex items-center">
+                <Clock className="w-4 h-4 mr-2" />FAQs
+              </a></li>
               <li><a href="#" className="text-white/70 hover:text-white">Contact Us</a></li>
             </ul>
           </div>

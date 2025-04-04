@@ -93,6 +93,7 @@
 
   body {
     @apply bg-white text-foreground font-sans;
+    font-family: 'Manrope', sans-serif;
   }
   
   .container {
@@ -109,5 +110,33 @@
   
   .product-card {
     @apply border border-gray-100 rounded-lg p-4 transition-all hover:shadow-lg;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
   }
 }

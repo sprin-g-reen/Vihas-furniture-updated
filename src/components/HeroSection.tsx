@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { Truck, Shield, RotateCcw, CreditCard } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -50,19 +51,19 @@ const HeroSection = () => {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="flex flex-col items-center text-center">
-              <img src="https://via.placeholder.com/40" alt="Free shipping" className="mb-2" />
+              <Truck className="w-10 h-10 mb-2 text-vihas-primary" />
               <span className="font-medium text-sm md:text-base">Free Shipping</span>
             </div>
             <div className="flex flex-col items-center text-center">
-              <img src="https://via.placeholder.com/40" alt="Warranty" className="mb-2" />
+              <Shield className="w-10 h-10 mb-2 text-vihas-primary" />
               <span className="font-medium text-sm md:text-base">3-Year Warranty</span>
             </div>
             <div className="flex flex-col items-center text-center">
-              <img src="https://via.placeholder.com/40" alt="Returns" className="mb-2" />
+              <RotateCcw className="w-10 h-10 mb-2 text-vihas-primary" />
               <span className="font-medium text-sm md:text-base">100-Day Returns</span>
             </div>
             <div className="flex flex-col items-center text-center">
-              <img src="https://via.placeholder.com/40" alt="Safe payment" className="mb-2" />
+              <CreditCard className="w-10 h-10 mb-2 text-vihas-primary" />
               <span className="font-medium text-sm md:text-base">Secure Payment</span>
             </div>
           </div>
