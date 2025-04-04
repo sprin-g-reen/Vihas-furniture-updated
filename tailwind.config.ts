@@ -64,10 +64,10 @@ const config = {
           "ring": "hsl(var(--sidebar-ring))"
         },
         vihas: {
-          primary: "#8B5CF6",    // Primary purple
+          primary: "#13455C",    // Updated from purple to teal blue
           secondary: "#1A1F2C",  // Dark purple/gray for text
           light: "#F1F0FB",      // Light background
-          accent: "#D946EF",     // Accent color
+          accent: "#0D6079",     // Updated from purple to a matching accent
           muted: "#8E9196"       // Muted text
         }
       },
