@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, ShoppingCart, Menu, X, User, Phone, Heart, ChevronDown } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X, User, Phone, Heart, ChevronDown, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -17,90 +17,104 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      {/* Top bar with contact info */}
-      <div className="bg-vihas-secondary text-white py-1">
-        <div className="container flex justify-end items-center text-xs">
-          <div className="flex items-center mr-4">
-            <Phone className="w-3 h-3 mr-1" />
-            <span>1800-456-7890</span>
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      {/* Top bar */}
+      <div className="bg-[#13455C] text-white py-2">
+        <div className="container">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center text-sm">
+              <MapPin className="w-4 h-4 mr-1" />
+              <span>Deliver to: </span>
+              <button className="font-medium ml-1 underline">Enter Pincode</button>
+            </div>
+            <div className="hidden md:flex items-center space-x-4 text-sm">
+              <a href="#" className="hover:underline">Track Order</a>
+              <a href="#" className="hover:underline">Customer Support</a>
+              <a href="#" className="hover:underline">Find a Store</a>
+            </div>
           </div>
-          <a href="#" className="hover:underline">Track Order</a>
         </div>
       </div>
       
       {/* Main navbar */}
-      <div className="container py-4">
-        <div className="flex items-center justify-between">
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="text-vihas-secondary"
-              onClick={toggleMenu}
-            >
-              <Menu />
-            </Button>
-          </div>
-          
-          {/* Logo */}
-          <div className="flex-1 lg:flex-initial text-center lg:text-left">
-            <a href="/" className="text-2xl font-bold text-vihas-primary">Vihas Furniture</a>
-          </div>
-          
-          {/* Search (hidden on mobile) */}
-          <div className="hidden lg:flex flex-1 max-w-md mx-6">
-            <div className="relative w-full">
-              <input 
-                type="text" 
-                placeholder="Search for products" 
-                className="w-full border border-gray-300 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-vihas-primary"
-              />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+      <div className="border-b">
+        <div className="container py-3">
+          <div className="flex items-center justify-between">
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="text-gray-700"
+                onClick={toggleMenu}
+              >
+                <Menu />
+              </Button>
             </div>
-          </div>
-          
-          {/* Icons */}
-          <div className="flex items-center space-x-4">
-            <button className="hidden lg:inline-flex items-center">
-              <User size={20} className="text-vihas-secondary" />
-            </button>
-            <button className="hidden md:inline-flex items-center">
-              <Heart size={20} className="text-vihas-secondary" />
-            </button>
-            <button className="relative">
-              <ShoppingCart size={20} className="text-vihas-secondary" />
-              <span className="absolute -top-1 -right-1 bg-vihas-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">0</span>
-            </button>
+            
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <a href="/" className="text-2xl font-bold text-[#13455C]">Vihas</a>
+            </div>
+            
+            {/* Search (hidden on mobile) */}
+            <div className="hidden md:flex flex-1 max-w-md mx-6">
+              <div className="relative w-full">
+                <input 
+                  type="text" 
+                  placeholder="Search for products" 
+                  className="w-full bg-gray-50 border border-gray-200 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-[#13455C]/30"
+                />
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              </div>
+            </div>
+            
+            {/* Icons */}
+            <div className="flex items-center space-x-1 md:space-x-3">
+              <a href="#" className="hidden md:flex flex-col items-center p-2">
+                <User size={20} className="text-gray-700" />
+                <span className="text-xs mt-1">Account</span>
+              </a>
+              <a href="#" className="hidden md:flex flex-col items-center p-2">
+                <Heart size={20} className="text-gray-700" />
+                <span className="text-xs mt-1">Wishlist</span>
+              </a>
+              <a href="#" className="flex flex-col items-center p-2 relative">
+                <ShoppingCart size={20} className="text-gray-700" />
+                <span className="text-xs mt-1">Cart</span>
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
       
       {/* Categories navigation (desktop) */}
-      <div className="hidden lg:block border-t">
+      <div className="hidden lg:block border-b bg-white">
         <div className="container">
           <ul className="flex justify-between py-3 text-sm font-medium overflow-x-auto">
             {categories.map((category, index) => (
               <li 
                 key={index} 
-                className="relative"
+                className="relative px-1"
                 onMouseEnter={() => setHoveredCategory(category)}
                 onMouseLeave={() => setHoveredCategory(null)}
               >
-                <a href="#" className="hover:text-vihas-primary whitespace-nowrap flex items-center">
+                <a href="#" className="hover:text-[#13455C] whitespace-nowrap flex items-center">
                   {category}
                   <ChevronDown className="ml-1 w-4 h-4" />
                 </a>
                 
                 {hoveredCategory === category && (
-                  <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg p-4 min-w-[200px] z-50">
-                    <ul className="space-y-2">
-                      <li><a href="#" className="hover:text-vihas-primary block py-1">All {category}</a></li>
-                      <li><a href="#" className="hover:text-vihas-primary block py-1">New Arrivals</a></li>
-                      <li><a href="#" className="hover:text-vihas-primary block py-1">Best Sellers</a></li>
-                      <li><a href="#" className="hover:text-vihas-primary block py-1">On Sale</a></li>
-                    </ul>
+                  <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg p-4 min-w-[250px] z-50 border">
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+                      <a href="#" className="hover:text-[#13455C] py-1">All {category}</a>
+                      <a href="#" className="hover:text-[#13455C] py-1">New Arrivals</a>
+                      <a href="#" className="hover:text-[#13455C] py-1">Best Sellers</a>
+                      <a href="#" className="hover:text-[#13455C] py-1">On Sale</a>
+                      <a href="#" className="hover:text-[#13455C] py-1">Premium</a>
+                      <a href="#" className="hover:text-[#13455C] py-1">Budget Friendly</a>
+                    </div>
                   </div>
                 )}
               </li>
@@ -109,54 +123,67 @@ const Navbar = () => {
         </div>
       </div>
       
+      {/* Mobile search (visible only on mobile) */}
+      <div className="block md:hidden border-b">
+        <div className="container py-3">
+          <div className="relative">
+            <input 
+              type="text" 
+              placeholder="Search for products" 
+              className="w-full bg-gray-50 border border-gray-200 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-[#13455C]/30"
+            />
+            <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+          </div>
+        </div>
+      </div>
+      
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-white z-50 lg:hidden overflow-y-auto">
           <div className="container py-4">
-            <div className="flex justify-between items-center mb-6">
-              <span className="text-xl font-bold text-vihas-primary">Vihas Furniture</span>
+            <div className="flex justify-between items-center mb-6 border-b pb-4">
+              <span className="text-xl font-bold text-[#13455C]">Vihas</span>
               <Button variant="ghost" size="icon" onClick={toggleMenu}>
-                <X className="text-vihas-secondary" />
+                <X className="text-gray-700" />
               </Button>
             </div>
             
-            <div className="mb-6">
-              <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Search for products" 
-                  className="w-full border border-gray-300 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-vihas-primary"
-                />
-                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+            <div className="mb-6 flex items-center">
+              <User className="mr-4 text-[#13455C]" />
+              <div>
+                <p className="font-medium">Welcome</p>
+                <div className="flex space-x-4 text-sm">
+                  <a href="#" className="text-[#13455C]">Login</a>
+                  <span>|</span>
+                  <a href="#" className="text-[#13455C]">Register</a>
+                </div>
               </div>
             </div>
             
-            <ul className="space-y-4">
+            <ul className="space-y-4 mb-6">
               {categories.map((category, index) => (
-                <li key={index} className="border-b border-gray-100 pb-2">
-                  <a href="#" className="flex justify-between items-center text-vihas-secondary font-medium">
+                <li key={index} className="border-b border-gray-100 pb-3">
+                  <a href="#" className="flex justify-between items-center text-gray-700 font-medium">
                     {category}
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-5 h-5" />
                   </a>
                 </li>
               ))}
             </ul>
             
-            <div className="mt-8 space-y-4">
-              <Button variant="ghost" className="flex items-center gap-2 w-full justify-start">
-                <User size={18} className="text-vihas-secondary" />
-                <span>Account</span>
-              </Button>
-              <Button variant="ghost" className="flex items-center gap-2 w-full justify-start">
-                <Heart size={18} className="text-vihas-secondary" />
-                <span>Wishlist</span>
-              </Button>
-              <div className="border-t pt-4 mt-4">
-                <div className="flex items-center gap-2">
-                  <Phone size={18} className="text-vihas-secondary" />
-                  <span>1800-456-7890</span>
-                </div>
-              </div>
+            <div className="space-y-4">
+              <a href="#" className="flex items-center gap-3 text-gray-700">
+                <Heart size={18} />
+                <span>My Wishlist</span>
+              </a>
+              <a href="#" className="flex items-center gap-3 text-gray-700">
+                <ShoppingCart size={18} />
+                <span>My Cart</span>
+              </a>
+              <a href="#" className="flex items-center gap-3 text-gray-700">
+                <Phone size={18} />
+                <span>Contact Us</span>
+              </a>
             </div>
           </div>
         </div>
