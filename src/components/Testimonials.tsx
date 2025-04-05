@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const Testimonials = () => {
   const testimonials = [
@@ -49,30 +49,28 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 md:py-16">
       <div className="container">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#13455C] mb-2">What Our Customers Say</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Don't just take our word for it. See what our customers have to say about their experience.
-          </p>
-        </div>
+        <h2 className="section-title text-center">Customer Love</h2>
+        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+          Don't just take our word for it. See what our customers have to say about their Vihas Furniture experience.
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id} 
-              className="bg-gray-50 p-6 rounded-lg relative"
+              className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm animate-slide-up"
+              style={{animationDelay: `${testimonial.id * 0.1}s`}}
             >
-              <Quote className="absolute top-6 right-6 text-gray-200 w-10 h-10" />
               <div className="flex items-center mb-4">
                 <img 
                   src={testimonial.image} 
                   alt={testimonial.name} 
-                  className="w-14 h-14 rounded-full object-cover border-2 border-[#13455C]"
+                  className="w-12 h-12 rounded-full object-cover mr-4"
                 />
-                <div className="ml-4">
-                  <h3 className="font-medium text-[#13455C]">{testimonial.name}</h3>
+                <div>
+                  <h3 className="font-medium">{testimonial.name}</h3>
                   <p className="text-gray-500 text-sm">{testimonial.location}</p>
                 </div>
               </div>
@@ -81,19 +79,19 @@ const Testimonials = () => {
                 {renderRating(testimonial.rating)}
               </div>
               
-              <p className="text-gray-700 mb-4">"{testimonial.comment}"</p>
+              <p className="text-gray-700 mb-4 italic">"{testimonial.comment}"</p>
               
-              <div className="text-sm text-gray-500 mt-4 pt-4 border-t">
-                Purchased: <span className="text-[#13455C] font-medium">{testimonial.product}</span>
+              <div className="text-sm text-gray-500">
+                Purchased: <span className="text-vihas-secondary">{testimonial.product}</span>
               </div>
             </div>
           ))}
         </div>
         
         <div className="text-center mt-10">
-          <div className="inline-flex items-center bg-[#13455C]/10 px-6 py-3 rounded-full">
+          <div className="inline-flex items-center bg-vihas-light px-6 py-3 rounded-full">
             <Star className="w-5 h-5 text-yellow-400 fill-yellow-400 mr-2" />
-            <span className="font-medium text-[#13455C]">4.8 average rating from 10,000+ reviews</span>
+            <span className="font-medium">4.8 average rating from 10,000+ reviews</span>
           </div>
         </div>
       </div>
