@@ -20,7 +20,8 @@ const CategoriesSection = () => {
     },
     { 
       name: "Dining Sets", 
-      image: "/lovable-uploads/a9e81e92-5808-4522-87e8-a4e88418c197.png",
+      image: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+
       count: "60+ Products"
     },
     { 

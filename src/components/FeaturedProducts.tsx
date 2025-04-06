@@ -47,7 +47,7 @@ const FeaturedProducts = () => {
       category: "Dining",
       price: 29999,
       originalPrice: 39999,
-      image: "/lovable-uploads/e5e79267-a66f-4dc6-8d0e-b67a84f08ced.png",
+      image: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
       rating: 4.6
     }
   ];
