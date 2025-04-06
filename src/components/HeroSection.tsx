@@ -1,9 +1,37 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Truck, Shield, RotateCcw, CreditCard } from 'lucide-react';
 
 const HeroSection = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const endDate = new Date("2025-04-15T23:59:59");
+      const now = new Date();
+      const difference = endDate - now;
+
+      return difference > 0
+        ? {
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((difference / 1000 / 60) % 60),
+            seconds: Math.floor((difference / 1000) % 60),
+          }
+        : { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    };
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative py-8 md:py-0">
       {/* Desktop Hero */}
@@ -28,7 +56,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Hero */}
       <div className="md:hidden">
         <div className="container">
@@ -45,30 +73,80 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
-      {/* Benefits bar */}
-      <div className="bg-vihas-light py-4 mt-6 md:mt-0">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex flex-col items-center text-center">
-              <Truck className="w-10 h-10 mb-2 text-vihas-primary" />
-              <span className="font-medium text-sm md:text-base">Free Shipping</span>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <Shield className="w-10 h-10 mb-2 text-vihas-primary" />
-              <span className="font-medium text-sm md:text-base">3-Year Warranty</span>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <RotateCcw className="w-10 h-10 mb-2 text-vihas-primary" />
-              <span className="font-medium text-sm md:text-base">100-Day Returns</span>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <CreditCard className="w-10 h-10 mb-2 text-vihas-primary" />
-              <span className="font-medium text-sm md:text-base">Secure Payment</span>
-            </div>
+
+      {/* Sale Timer and Bank Offers */}
+  {/* Sale Timer and Bank Offers */}
+<div className="bg-[#fff3e8] py-6">
+  <div className="container mx-auto px-4 flex flex-col md:flex-row items-stretch gap-4">
+    {/* Timer Box */}
+    <div className="flex items-center justify-between border border-red-200 rounded-lg p-4 w-full md:w-1/2 bg-white">
+      <div className="flex items-center">
+        <img
+          src="/HU_sale_unit.avif"
+          alt="Home Upgrade Sale"
+          className="w-16 h-16 object-contain mr-4"
+        />
+        <div>
+          <p className="text-black text-base font-semibold mb-1">Sale Ends In:</p>
+          <div className="flex gap-2 text-[#ff4d00] font-bold text-xl">
+            {["days", "hours", "minutes", "seconds"].map((unit, idx) => (
+              <div className="text-center" key={unit}>
+                <span>{String(timeLeft[unit]).padStart(2, "0")}</span>
+                <br />
+                <span className="text-xs text-gray-600 capitalize">
+                  {unit === "hours" ? "Hrs" : unit === "minutes" ? "Mins" : unit === "seconds" ? "Secs" : "Days"}
+                </span>
+                {idx < 3 && <span className="mx-1">:</span>}
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
+      <div className="border-l h-14 mx-4"></div>
+
+      <div className="flex items-center gap-1">
+        <img src="/kotak.avif" alt="Bank" className="w-6 h-6" />
+        <img src="/rbl.avif" alt="Bank" className="w-6 h-6" />
+        <img src="/amex.avif" alt="Bank" className="w-6 h-6" />
+        <div className="ml-2 text-green-600 text-sm font-semibold">
+          up to <span className="text-green-800 text-base">10% OFF</span> <span>››</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Why Wakefit Box */}
+    <div className="border border-red-200 rounded-lg p-4 w-full md:w-1/2 bg-white flex items-center justify-between">
+      <div className="flex items-center gap-6 w-full">
+        <div className="text-left whitespace-nowrap">
+          <p className="text-purple-500 font-semibold text-sm">Why</p>
+          <p className="text-purple-700 font-bold text-lg -mt-1">wakefit?</p>
+        </div>
+
+        <div className="flex items-center justify-between flex-1 text-center text-gray-700 text-sm gap-4">
+          <div>
+            <img src="/smiley.avif" className="w-6 h-6 mx-auto mb-1" alt="Customers" />
+            <p className="font-medium text-purple-700">25 Lakhs+</p>
+            <p className="text-xs">Customers</p>
+          </div>
+          <div>
+            <img src="/shipping.avif" className="w-6 h-6 mx-auto mb-1" alt="Shipping" />
+            <p className="font-medium text-purple-700">Free Shipping</p>
+          </div>
+          <div>
+            <img src="/tools.avif" className="w-6 h-6 mx-auto mb-1" alt="Installation" />
+            <p className="font-medium text-purple-700">Free Installation</p>
+          </div>
+          <div>
+            <img src="/warranty.avif" className="w-6 h-6 mx-auto mb-1" alt="Warranty" />
+            <p className="font-medium text-purple-700">Best Warranty</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     </section>
   );
 };

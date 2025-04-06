@@ -10,8 +10,7 @@ const SpecialOffers = () => {
           {/* First Offer */}
           <div className="relative rounded-2xl overflow-hidden animate-fade-in">
             <img 
-              src="https://images.unsplash.com/photo-1505693414898-9db606e72066?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
-              alt="Special offer on mattresses" 
+ src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"               alt="Special offer on mattresses" 
               className="w-full h-72 object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
